@@ -375,4 +375,15 @@ textarea {
   align-items: center;
   background-color: blue;
   color: red;
+}
+
+.test-dev {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  color: yellow;
 }/*# sourceMappingURL=style.css.map */
