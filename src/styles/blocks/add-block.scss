@@ -27,8 +27,8 @@
             background-color: $color-text-secondary;
             position: absolute;
             top: 0;
-            left: 0;
-            transform: rotate(45deg);
+            left: 50%;
+            transform: rotate(45deg) translateX(-50%);
         }
 
         &::before {
@@ -38,8 +38,8 @@
             background-color: $color-text-secondary;
             position: absolute;
             top: 0;
-            left: 0;
-            transform: rotate(-45deg);
+            left: 50%;
+            transform: rotate(-45deg) translateX(-50%);
         }
     }
 }
