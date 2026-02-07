@@ -1,0 +1,32 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &--add-transparent {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        color: $color-text-secondary;
+        @include text-style("body-text");
+    }
+
+    &__text {
+        margin: 0;
+    }
+
+    &--add-secondary {
+        width: 147px;
+        padding: 8px;
+        border-radius: 3px;
+        color: $color-white;
+        @include text-style("title-text");
+        background-color: $color-btn;
+    }
+
+
+}

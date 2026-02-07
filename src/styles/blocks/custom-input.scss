@@ -1,0 +1,18 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.custom-input {
+    &__fieldset {
+        width: 100%;
+        padding: 8px 12px;
+        box-shadow: $shadow-drop;
+        border: none;
+        border-radius: 3px;
+
+        &::placeholder {
+            @include text-style("body-text");
+            color: $color-text-placeholder;
+        }
+    }
+
+}

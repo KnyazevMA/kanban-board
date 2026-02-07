@@ -1,14 +1,125 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kanban-board</title>
-  </head>
-  <body>
-    <h1 class="test">Hello World!</h1>
-    <h2 class="test-dev">Test Dev Vercel</h2>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kanban-board</title>
+</head>
+
+<body>
+  <ul class="column-list">
+    <li class="column-list__item">
+      <h2 class="column-list__title">План на месяц</h2>
+      <ul class="card-list">
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Пройти курс по React</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Отметить день рождения</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Записаться на курсы английского языка, чтобы уехать жить в Лондон</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Сделать бекенд своего сайта на node.js</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Написать первую статью в блог</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Записаться в мотошколу. Хотя немного страшновато, конечно. Друзья и родители
+              против, но очень хочется. Но кого я обманываю, уже 2 года решаюсь на этот шаг 😢 Еще и друзья будут
+              хрустиком называть. В общем, хотя бы подумать над этим.</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Нет, я серьезный человек, иду в мотошколу. Записываюсь!</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Записаться в мотошколу. Хотя немного страшновато, конечно. Друзья и родители
+              против, но очень хочется. Но кого я обманываю, уже 2 года решаюсь на этот шаг 😢 Еще и друзья будут
+              хрустиком называть. В общем, хотя бы подумать над этим.</p>
+          </div>
+        </li>
+      </ul>
+      <button class="btn btn--add-transparent" type="button">
+        <svg class="btn__icon" width="15" height="15" aria-hidden="true">
+          <use xlink:href="./dist/images/sprite.svg#icon-plus"></use>
+        </svg>
+        <p class="btn__text">Добавить еще одну карточку</p>
+      </button>
+    </li>
+    <li class="column-list__item">
+      <h2 class="column-list__title">План на день</h2>
+      <ul class="card-list">
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Записаться на курс по React</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Забронировать тир на субботу</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Накидать тем для статей в блог</p>
+          </div>
+        </li>
+        <li class="card-list__item">
+          <div class="card-task">
+            <p class="card-task__text">Сделать колонку Итоги</p>
+          </div>
+        </li>
+      </ul>
+      <button class="btn btn--add-transparent" type="button">
+        <svg class="btn__icon" width="15" height="15" aria-hidden="true">
+          <use xlink:href="./dist/images/sprite.svg#icon-plus"></use>
+        </svg>
+        <p class="btn__text">Добавить еще одну карточку</p>
+      </button>
+    </li>
+    <li class="column-list__item">
+      <div class="add-block">
+        <div class="custom-input">
+          <input class="custom-input__fieldset" type="text" placeholder="Введите название колонки">
+        </div>
+        <div class="add-block__inner">
+          <button class="btn btn--add-secondary" type="button">
+            <p class="btn__text">Добавить колонку</p>
+          </button>
+          <button class="add-block__close-btn" type="button"></button>
+        </div>
+      </div>
+    </li>
+    <li class="column-list__item">
+      <button class="btn btn--add-transparent" type="button">
+        <svg class="btn__icon" width="15" height="15" aria-hidden="true">
+          <use xlink:href="./dist/images/sprite.svg#icon-plus"></use>
+        </svg>
+        <p class="btn__text">Добавить еще одну колонку</p>
+      </button>
+    </li>
+  </ul>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

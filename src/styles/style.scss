@@ -1,31 +1,15 @@
 //!GLOBAL
 @use './global/variables' as *;
 @use './global/container';
-@use './global/mixins';
+@use './global/mixins' as *;
 @use './global/normalize';
 @use './global/reboot';
 @use './global/visually-hidden';
 
 //!BLOCKS
-
-.test {
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
-    color: red;
-}
-
-.test-dev {
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: green;
-    color: yellow;
-}
+@use './blocks/btn.scss';
+@use './blocks/custom-input.scss';
+@use './blocks/add-block.scss';
+@use './blocks/column-list.scss';
+@use './blocks/card-list.scss';
+@use './blocks/card-task.scss';
