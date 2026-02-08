@@ -1,12 +1,12 @@
 @use "../global/variables" as *;
 @use "../global/mixins" as *;
 
-.btn {
+.btn-add {
     background-color: transparent;
     border: none;
     cursor: pointer;
 
-    &--add-transparent {
+    &--primary {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
@@ -15,11 +15,7 @@
         @include text-style("body-text");
     }
 
-    &__text {
-        margin: 0;
-    }
-
-    &--add-secondary {
+    &--secondary {
         width: 147px;
         padding: 8px;
         border-radius: 3px;
