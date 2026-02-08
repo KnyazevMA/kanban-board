@@ -1,8 +1,22 @@
+/* Fonts */
+$ff-main: "Monserrat", "Arial", sans-serif;
+
 // Colors
 $color-white: #ffffff;
 $color-black: #000000;
+$color-bg-light: #DFE3E6;
+$color-text-secondary: #6B808C;
+$color-text-placeholder: #B8B9BB;
+$color-btn: #39C071;
+
+//Shadow
+$shadow-drop: 0px 1px 4px 0px #092D4240;
 
 // Typography
+$typography: (
+    "title-text": (fs:13px, fw:700, lh:19px),
+    "body-text": (fs:13px, fw:400, lh:19px)
+);
 
 // Viewport
 $vp-tablet: 1023px;
