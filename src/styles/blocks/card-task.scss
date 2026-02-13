@@ -1,0 +1,17 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.card-task {
+    padding: 8px 12px;
+    width: 100%;
+    background-color: $color-white;
+    border-radius: 3px;
+    box-shadow: $shadow-drop;
+    cursor: pointer;
+
+    &__text {
+        padding: 0;
+        margin: 0;
+        @include text-style("body-text");
+    }
+}

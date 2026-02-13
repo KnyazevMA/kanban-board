@@ -1,0 +1,19 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: $color-bg-light;
+    max-width: 272px;
+    padding: 12px;
+    border-radius: 3px;
+    width: 272px;
+    max-height: calc(100vh - 40px);
+
+    &__title {
+        @include text-style("title-text");
+        margin: 0;
+    }
+}

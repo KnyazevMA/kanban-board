@@ -1,0 +1,68 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.add-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__fieldset {
+        width: 100%;
+        padding: 8px 12px;
+        box-shadow: $shadow-drop;
+        border: none;
+        border-radius: 3px;
+
+        &::placeholder {
+            @include text-style("body-text");
+            color: $color-text-placeholder;
+        }
+
+        &--error {
+            background-color: $color-error-bg;
+
+            &::placeholder {
+                color: $color-error-text;
+            }
+        }
+    }
+
+    &__inner {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__close-btn {
+        border: none;
+        background-color: transparent;
+        width: 15px;
+        height: 15px;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            width: 1px;
+            height: 15px;
+            background-color: $color-text-secondary;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: rotate(45deg) translateX(-50%);
+        }
+
+        &::before {
+            content: '';
+            width: 1px;
+            height: 15px;
+            background-color: $color-text-secondary;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: rotate(-45deg) translateX(-50%);
+        }
+    }
+}
