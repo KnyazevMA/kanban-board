@@ -95,6 +95,26 @@ export function initApp() {
             resetAddCardForm(cancelCard.closest('.column'));
             return;
         }
+
+        //* ---------DELETE------------
+        const deleteCardBtn = event.target.closest('[data-action="delete-card"]');
+        if (deleteCardBtn) {
+            const cardEl = deleteCardBtn.closest('[data-card-id]');
+            const columnEl = deleteCardBtn.closest('.column');
+            if (!cardEl || !columnEl) return;
+
+            const cardId = cardEl.dataset.cardId;
+            const columnId = columnEl.dataset.columnId;
+
+            const column = state.columns.find((c) => c.id === columnId);
+            if (!column || !Array.isArray(column.cards)) return;
+
+            column.cards = column.cards.filter((card) => card.id !== cardId);
+
+            saveState(state);
+            renderColumns(rootEl, state);
+            return;
+        }
     });
 
     rootEl.addEventListener('input', (event) => {

@@ -31,7 +31,14 @@ export function createCardEl(card) {
   textEl.className = 'card-task__text';
   textEl.textContent = card.title;
 
-  cardEl.append(textEl);
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'card-task__delete';
+  deleteBtn.type = 'button';
+  deleteBtn.dataset.action = 'delete-card';
+  deleteBtn.setAttribute('aria-label', 'Удалить карточку');
+  deleteBtn.innerHTML = '✕'; 
+
+  cardEl.append(textEl, deleteBtn);
   itemListEl.append(cardEl);
   return itemListEl;
 }
