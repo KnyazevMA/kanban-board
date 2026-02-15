@@ -1,14 +1,124 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kanban-board</title>
-  </head>
-  <body>
-    <h1 class="test">Hello World!</h1>
-    <h2 class="test-dev">Test Dev Vercel</h2>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban board</title>
+</head>
+
+<body>
+  <section class="column-list">
+    <h1 class="visually-hidden">Kanban board</h1>
+    <!-- <section class="column">
+      <h2 class=" column__title">План на месяц</h2>
+      <ul class="card-list">
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Пройти курс по React</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Отметить день рождения</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Записаться на курсы английского языка, чтобы уехать жить в Лондон</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Сделать бекенд своего сайта на node.js</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Написать первую статью в блог</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Записаться в мотошколу. Хотя немного страшновато, конечно. Друзья и родители
+              против, но очень хочется. Но кого я обманываю, уже 2 года решаюсь на этот шаг 😢 Еще и друзья будут
+              хрустиком называть. В общем, хотя бы подумать над этим.</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Нет, я серьезный человек, иду в мотошколу. Записываюсь!</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Записаться в мотошколу. Хотя немного страшновато, конечно. Друзья и родители
+              против, но очень хочется. Но кого я обманываю, уже 2 года решаюсь на этот шаг 😢 Еще и друзья будут
+              хрустиком называть. В общем, хотя бы подумать над этим.</span>
+          </article>
+        </li>
+      </ul>
+      <button class="btn-add btn-add--primary" type="button" aria-label="Кнопка добавления карточки в колонку" data-action="add-card">
+        <svg class="btn-add__icon" width="15" height="15" aria-hidden="true">
+          <use xlink:href="./dist/images/sprite.svg#icon-plus"></use>
+        </svg>
+        <span class="btn-add__text">Добавить еще одну карточку</span>
+      </button>
+    </section>
+    <section class="column">
+      <h2 class="column__title">План на день</h2>
+      <ul class="card-list">
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Записаться на курс по React</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Забронировать тир на субботу</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Накидать тем для статей в блог</span>
+          </article>
+        </li>
+        <li class="card-list__item">
+          <article class="card-task">
+            <span class="card-task__text">Сделать колонку Итоги</span>
+          </article>
+        </li>
+      </ul>
+      <button class="btn-add btn-add--primary" type="button" aria-label="Кнопка добавления карточки в колонку">
+        <svg class="btn-add__icon" width="15" height="15" aria-hidden="true">
+          <use xlink:href="./dist/images/sprite.svg#icon-plus"></use>
+        </svg>
+        <span class="btn-add__text">Добавить еще одну карточки</span>
+      </button>
+    </section>
+    <section class="column">
+      <form class="add-block" method="post">
+        <label>
+          <span class="visually-hidden">Название колонки</span>
+          <input class="add-block__fieldset" type="text" placeholder="Введите название колонки">
+        </label>
+        <div class="add-block__inner">
+          <button class="btn-add btn-add--secondary" type="button" aria-label="Кнопка добавить колонку">Добавить колонку</button>
+          <button class="add-block__close-btn" type="button" aria-label="Кнопка закрытия меню добавления колонки"></button>
+        </div>
+      </form>
+    </section>
+    <section class="column">
+      <button class="btn-add btn-add--primary" type="button" aria-label="Кнопка добавление колонки">
+        <svg class="btn-add__icon" width="15" height="15" aria-hidden="true">
+          <use xlink:href="/images/sprite.svg#add-icon"></use>
+        </svg>
+        <span class="btn-add__text">Добавить еще одну колонку</span>
+      </button>
+    </section> -->
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
