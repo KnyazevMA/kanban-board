@@ -11,6 +11,10 @@
     -ms-overflow-style: none;
     min-height: 0;
 
+    &:empty {
+        display: none;
+    }
+
     &::-webkit-scrollbar {
         width: 0;
         height: 0;

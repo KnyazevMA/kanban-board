@@ -21,71 +21,146 @@ export function initApp() {
 
         if (!input) return;
 
+        input.value = '';
+        clearInputError(input, 'Введите название колонки');
+    }
+
+    function resetAddCardForm(columnEl) {
+        const form = columnEl.querySelector('[data-role="add-card-form"]');
+        const input = columnEl.querySelector('[data-role="add-card-input"]');
+        const openBtn = columnEl.querySelector('[data-action="add-card-open"]');
+
+        if (form) form.classList.add('is-hidden');
+        if (openBtn) openBtn.classList.remove('is-hidden');
+
+        if (!input) return;
+
+        input.value = '';
+        clearInputError(input, 'Введите название карточки');
+    }
+
+    function setInputError(input, placeholder) {
+        input.classList.add('add-block__fieldset--error');
+        input.setAttribute('aria-invalid', 'true');
+        input.value = '';
+        input.placeholder = placeholder;
+        input.focus();
+    }
+
+    function clearInputError(input, placeholder) {
         input.classList.remove('add-block__fieldset--error');
         input.removeAttribute('aria-invalid');
-        input.value = '';
-        input.placeholder = 'Введите название колонки';
+        if (placeholder) input.placeholder = placeholder;
     }
 
     rootEl.addEventListener('click', (event) => {
-        const openBtn = event.target.closest('[data-action="add-column-open"]');
-        if (openBtn) {
-            const columnEl = openBtn.closest('.column');
+        //* ---------COLUMN------------
+        const openColBtn = event.target.closest('[data-action="add-column-open"]');
+        if (openColBtn) {
+            const columnEl = openColBtn.closest('.column');
             const form = columnEl.querySelector('[data-role="add-column-form"]');
+            if (!form) return;
 
-            openBtn.classList.add('is-hidden');
+            openColBtn.classList.add('is-hidden');
             form.classList.remove('is-hidden');
 
             const input = columnEl.querySelector('[data-role="add-column-input"]');
             input.focus();
+            return;
         }
 
-        const cancelBtn = event.target.closest('[data-action="add-column-cancel"]');
-        if (cancelBtn) {
-            const columnEl = cancelBtn.closest('.column');
+        const cancelColBtn = event.target.closest('[data-action="add-column-cancel"]');
+        if (cancelColBtn) {
+            const columnEl = cancelColBtn.closest('.column');
             resetAddColumnForm(columnEl);
+            return;
         }
-    });
 
-    rootEl.addEventListener('input', (event) => {
-        const input = event.target.closest('[data-role="add-column-input"]');
-        if (!input) return;
+        //* ---------CARD------------
+        const openCardBtn = event.target.closest('[data-action="add-card-open"]');
+        if (openCardBtn) {
+            const columnEl = openCardBtn.closest('.column');
+            const form = columnEl.querySelector('[data-role="add-card-form"]');
+            const input = columnEl.querySelector('[data-role="add-card-input"]');
+            if (!input) return;
 
-        input.classList.remove('add-block__fieldset--error');
-        input.removeAttribute('aria-invalid');
-
-        input.placeholder = 'Введите название колонки';
-    });
-
-    rootEl.addEventListener('submit', (event) => {
-        const form = event.target.closest('[data-role="add-column-form"]');
-        if (!form) return;
-
-        event.preventDefault();
-
-        const columnEl = form.closest('.column');
-        const input = columnEl.querySelector('[data-role="add-column-input"]');
-
-        const value = input.value.trim();
-
-        if (!value) {
-            input.classList.add('add-block__fieldset--error');
-            input.setAttribute('aria-invalid', 'true');
-
-            input.value = '';
-            input.placeholder = 'Введите название колонки';
-
+            openCardBtn.classList.add('is-hidden');
+            form.classList.remove('is-hidden');
             input.focus();
             return;
         }
 
-        input.classList.remove('add-block__fieldset--error');
-        input.removeAttribute('aria-invalid');
+        const cancelCard = event.target.closest('[data-action="add-card-cancel"]');
+        if (cancelCard) {
+            resetAddCardForm(cancelCard.closest('.column'));
+            return;
+        }
+    });
 
-        const id = crypto?.randomUUID?.() ?? `col-${Date.now()}`;
-        state.columns.push({ id, title: value });
-        saveState(state);
+    rootEl.addEventListener('input', (event) => {
+        const input = event.target.closest('[data-role="add-column-input"], [data-role="add-card-input"]');
+        if (!input) return;
 
-        renderColumns(rootEl, state);
+        const placeholder = input.matches('[data-role="add-column-input"]')
+            ? 'Введите название колонки'
+            : 'Введите название карточки';
+
+        clearInputError(input, placeholder);
+    });
+
+    rootEl.addEventListener('submit', (event) => {
+        const colForm = event.target.closest('[data-role="add-column-form"]');
+        if (colForm) {
+            event.preventDefault();
+
+            const columnEl = colForm.closest('.column');
+            const input = columnEl.querySelector('[data-role="add-column-input"]');
+
+            const value = input.value.trim();
+
+            if (!value) {
+                setInputError(input, 'Введите название колонки');
+                return;
+            }
+
+            clearInputError(input, 'Введите название колонки');
+
+            const id = crypto?.randomUUID?.() ?? `col-${Date.now()}`;
+            state.columns.push({ id, title: value, cards: [] });
+            saveState(state);
+
+            renderColumns(rootEl, state);
+            return;
+        }
+
+        const cardForm = event.target.closest('[data-role="add-card-form"]');
+        if (cardForm) {
+            event.preventDefault();
+            const columnEl = cardForm.closest('.column');
+            const columnId = columnEl.dataset.columnId;
+
+            const input = columnEl.querySelector('[data-role="add-card-input"]');
+            const value = input.value.trim();
+
+            if (!value) {
+                setInputError(input, 'Введите название карточки');
+                return;
+            }
+
+            clearInputError(input, 'Введите название карточки');
+
+            const column = state.columns.find((c) => c.id === columnId);
+            if (!column) return;
+
+            if (!Array.isArray(column.cards)) column.cards = [];
+
+            const id = crypto?.randomUUID?.() ?? `card-${Date.now()}`;
+            column.cards.push({ id, title: value });
+
+            saveState(state);
+            renderColumns(rootEl, state);
+
+            resetAddCardForm(columnEl); return;
+        }
     });
 }
